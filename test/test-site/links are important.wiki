@@ -1,0 +1,10 @@
+A link should
+  be in this dir
+  unless its not
+
+A link should 
+  be all lower case
+  have hyphens in place of spaces
+  end in '.html'
+  
+[[use hypertext dammit]]

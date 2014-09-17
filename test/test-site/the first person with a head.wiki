@@ -1,0 +1,23 @@
+---
+character: Some goner, I dunno
+topic: stage, narration, first person, headers
+publish?: sure
+---
+
+
+I'm typing this thing up, and so, I require some background information. Unless a
+dramaturge has something to read so as to place me, I'm a goner. (I'm a character, you
+see, and I don't have much time.)
+
+So I'm going to write exactly what I just wrote, but with a trick.
+
+
+I've added some stuff called header data to the top. It's bracketed by the triple hyphens
+to tell the process that there's a header here.
+
+I can imagine there being invalid data, but I bet this will throw an error anyway if that
+comes up soon.
+
+So, you might want to throw this function, but you would not write a catch until later.
+
+Okay. I'm ready. I know that I've had my say, and I just wanted to add th[[links are important]]

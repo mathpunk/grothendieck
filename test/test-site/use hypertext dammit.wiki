@@ -1,0 +1,19 @@
+Hypertext is the fibre bundle of one speaker's role in a conversation. 
+
+Or it can be. See? It looks like this...
+
+
+;; take a blog post 
+;; expand its structure and filter it
+;; expand its style and filter it
+;; highlight the links
+;; rotate the thing in three dimensions
+;; show that there is a hairbrush to the other documents
+;; do something similar to the natural language words
+;; follow down the hole asynchronously for a while
+;; pre render that ffs
+
+
+
+I mean, it looks like code that does that. I don't have time for this, I've got [[projects]]
+dammit!

@@ -1,0 +1,45 @@
+It's too bad that staging has such very nondual meanings. 
+
+
+
+
+I just wrote down a picture on my app and it's so weird, I can see myself talking about
+both the STRUCTURE of a code framework and the STAGING -- but not in some way of like, I'm
+preparing a stagecoach for delivery, I'm doing some ops task -- I mean theatrical staging.
+
+I'm writing about these technologies, and I don't like using the name of a technology lest
+it reify strayly ("strayify"), but I need a dir structure and look:
+
+
+md x resources
+      | img     dir styling-fns
+      | js      include-js lib
+      | css     include-css lib
+      | md      include-writing
+   x structure, style, roles, motivations, actions, (reactions), effects, tickets
+   
+
+
+There is a structure that my pages must have. But I don't want to define them in html, I
+want them to just be "structure". This is probably what it's like to know LaTeX well
+enough to get work in it. But, I want to get in the modern style: there can be
+transitions, multimedia, animation, and the like. And I want to do this to create an
+effect: I want text to move through time and appearance to create an effect. 
+
+It's a freaking improv show! There are writers and editors and readers and associates,
+there is the editing context and the annotating context and the marking context and such
+motivations, there are actions and you'd *think* there are reactions but you can't think
+of them that way, they are their own actions, but in someone else's control. So the
+action-reaction thing, that's left to the construction of some rx-style or channel-style. 
+Or, better yet, ignored. Why start with an interactive show when you can just present the
+staged documents and let the reaction come through ordinary protocols? Why you gotta be so
+damn needy? 
+
+Well, because that's the medium of this era. It's supposed to be so very reactive. Well,
+we're going to have some reactivity in this annotations thing, and someone else did all
+the work. Just bake it in, keep learning your server side, and work really hard on writing
+over the next 3 days. You've had a good break of practice. Quick, implement your thing
+before there's no time! 
+
+
+
