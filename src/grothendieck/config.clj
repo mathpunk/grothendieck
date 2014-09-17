@@ -1,4 +1,6 @@
-(ns grothendieck.config)
+(ns grothendieck.config
+  (:require [garden.core :refer [css]]
+            [hiccup.core :refer [html]]))
 
 ;; How will your users set the config? the templates?
 ;; So the config file ought to have space to put in templates.
@@ -30,7 +32,7 @@
        [:h1, :h2 {:color "#ee3e80"}]
        [:p {:color "#665544"}]))
 
-(def structure-style
+(def structure-and-style
   (html [:head
          [:title "Using Internal CSS"]
          [:style {:type "text/css"}
