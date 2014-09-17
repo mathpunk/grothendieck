@@ -7,7 +7,7 @@
 (def style
   (css []))
 
-(defn structure [m]
+(defn structure [{:keys [title]}]
   (html 
     [:html {:dir "ltr" :lang "en-US"}
       [:head
@@ -29,6 +29,5 @@
              custom style]
          (include-css base theme normalize typography custom))
        (let [base "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"]
-             include-js base)])
-       (head title)
-       [:body [:div#content (md-to-html-string md)]]])
+             include-js base)]
+       [:body [:div#content (md-to-html-string md)]]]))
