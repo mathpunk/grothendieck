@@ -1,5 +1,6 @@
 (ns grothendieck.page
   (:require [markdown.core :refer [md-to-html-string]])
+  (:require [hiccup.core :refer [html]])
   (:require [hiccup.def :refer [defhtml]])
   (:require [hiccup.page :refer [include-css include-js]])
   (:require [garden.core :refer [css]]))
@@ -7,7 +8,7 @@
 (def style
   (css []))
 
-(defn structure [{:keys [title]}]
+(defn structure [{:keys [title keywords md]}]
   (html 
     [:html {:dir "ltr" :lang "en-US"}
       [:head

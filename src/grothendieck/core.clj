@@ -5,7 +5,7 @@
 
 (defn md-file->page [f]
   (let [title (:title f) content (slurp f)]
-    (page (assoc {} title content))))
+    (structure (assoc {} title content))))
 
 (defn -main [source target]
   (println "Building site.......")
