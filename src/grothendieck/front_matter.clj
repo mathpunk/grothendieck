@@ -1,7 +1,7 @@
-(ns grothendieck.headerer
+(ns grothendieck.front-matter
   (:require [clojure.string :as string]))
 
-(defn process-lines [lines]
+(defn- process-lines [lines]
   (let [ls (->> lines
                 (map string/trim)
                 (remove string/blank?))]
@@ -10,6 +10,6 @@
         {:front (vec front) :body (vec (next sep-and-body))})
       {:body (vec ls)})))
 
-(defn process-file [f]
+(defn with-front-matter [f]
   (with-open [r (clojure.java.io/reader f)]
     (process-lines (line-seq r))))

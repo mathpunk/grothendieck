@@ -1,5 +1,6 @@
 (ns grothendieck.core
   (:require [grothendieck.page :refer :all])
+  (:require [grothendieck.front-matter :refer :all])
   (:gen-class :main true))
 
 (defn md-file->page [f]
