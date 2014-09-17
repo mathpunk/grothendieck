@@ -7,28 +7,28 @@
 (def style
   (css []))
 
-(defn head [title & keywords]
-  [:head
-    [:meta {:charset "UTF-8"}]
-    [:meta {:name "viewport" :content "width device-width"}]
-    [:meta {:name "robots" :content "all"}]
-    [:meta {:http-equiv "imagetoolbar" :content "false"}]
-    [:meta {:name "MSSmartTagsPreventParsing" :content "true"}]
-    [:meta {:name "keywords" :content keywords}]
-    [:meta {:name "author" :content "Thomas Henderson"}]
-    [:meta {:name "author" :content "Simon Griffee (template)" :url "https://github.com/hypertexthero/typography/blob/master/index.html"}]
-    ;[:link {:rel "Shortcut Icon" :href "/public/img/favicon.ico" :type "image/x-icon"}]
-    [:title title]
-   (let [normalize "//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css"
-         typography "//cdn.jsdelivr.net/typeplate/1.1.2/typeplate.min.css"
-         base  "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
-         theme "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"
-         custom style]
-     (include-css base theme normalize typography custom))
-   (let [base "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"]
-         include-js base)])
-
-(defhtml page [{:keys [title md keywords]}]
-  [:html {:dir "ltr" :lang "en-US"}
-   (head title)
-   [:body [:div#content (md-to-html-string md)]]])
+(defn structure [m]
+  (html 
+    [:html {:dir "ltr" :lang "en-US"}
+      [:head
+        [:meta {:charset "UTF-8"}]
+        [:meta {:name "viewport" :content "width device-width"}]
+        [:meta {:name "robots" :content "all"}]
+        [:meta {:http-equiv "imagetoolbar" :content "false"}]
+        [:meta {:name "MSSmartTagsPreventParsing" :content "true"}]
+        [:meta {:name "keywords" :content keywords}]
+        [:meta {:name "author" :content "Thomas Henderson"}]
+        [:meta {:name "author" :content "Simon Griffee (template)" 
+                :url "https://github.com/hypertexthero/typography/blob/master/index.html"}]
+        ;[:link {:rel "Shortcut Icon" :href "/public/img/favicon.ico" :type "image/x-icon"}]
+        [:title title]
+       (let [normalize "//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css"
+             typography "//cdn.jsdelivr.net/typeplate/1.1.2/typeplate.min.css"
+             base  "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+             theme "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"
+             custom style]
+         (include-css base theme normalize typography custom))
+       (let [base "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"]
+             include-js base)])
+       (head title)
+       [:body [:div#content (md-to-html-string md)]]])

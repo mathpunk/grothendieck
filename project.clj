@@ -12,4 +12,6 @@
                  [markdown-clj "0.9.47"]]
   :main ^:skip-aot grothendieck.core
   :target-path "target/%s"
+  :source-paths ["src"]
+  :test-paths ["src/grothendieck/test"]
   :profiles {:uberjar {:aot :all}})
