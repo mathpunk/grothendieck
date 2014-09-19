@@ -14,8 +14,6 @@
   (remove (fn [x] (empty?  (re-seq #"\.(md|wiki)" (.getName x))))
           (file-seq (clojure.java.io/file dir))))
 
-; def pages
-
 (defn preprocessed [file]
   {:title (.getName file) :body (slurp file)}
   )
@@ -25,17 +23,21 @@
       (clojure.string/lower-case)
       (clojure.string/replace <> " " "-")))
 
+(defn title [sitename f]
+  (str sitename " | " (.getName f)))
+
 (defn write-page [target title]
   (fn [f]
     (let [filename (slug (.getName f))
           path (java.io.File. target filename)]
        (spit path (make-page {:title title :keywords "" :body (slurp f)})))))
 
-(defn build-site [title source target]
-  (println "Building site " title " from the " source " directory..................")
-  (let [please-to-write (write-page target title)]
-    (map #(please-to-write %) (files source)))
-  (println "Built " source "site in " target "."))
+
+;; (defn build-site [title source target]
+;;   (println "Building site " title " from the " source " directory..................")
+;;   (let [please-to-write (write-page target title)]
+;;     (map #(please-to-write %) (files source)))
+;;   (println "Built " source "site in " target "."))
 
 
 
