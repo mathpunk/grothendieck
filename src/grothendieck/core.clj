@@ -5,12 +5,20 @@
   ;(:gen-class :main true)
   )
 
+;(defrecord WikiDir [path]
+;  File
+;  ())
+;(let [testing "src/test/"])
+
 (defn files [dir]
   (remove (fn [x] (empty?  (re-seq #"\.(md|wiki)" (.getName x))))
           (file-seq (clojure.java.io/file dir))))
 
-(defn pages [dir]
-  (map #(make-page %) (files dir)))
+; def pages
+
+(defn preprocessed [file]
+  {:title (.getName file) :body (slurp file)}
+  )
 
 (defn slug [filename]
   (-<> filename
