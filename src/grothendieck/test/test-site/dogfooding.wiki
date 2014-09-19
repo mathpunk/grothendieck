@@ -1,6 +1,6 @@
-I'm doing it. 
+I'm doing it.
 
-This is the DOGFOOD KERNEL. 
+This is the DOGFOOD KERNEL.
 
 This site contains a wiki that should be a deployable markedup site that gets more marked.
 

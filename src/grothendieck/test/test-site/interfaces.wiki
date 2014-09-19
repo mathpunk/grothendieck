@@ -6,6 +6,6 @@
 
 [backstaging](the real staging) [[backstaging]]
 
-which by the way is 
-is different from [backstaging](http://example.com/wow?omg). 
+which by the way is
+is different from [backstaging](http://example.com/wow?omg).
 

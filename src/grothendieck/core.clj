@@ -6,7 +6,7 @@
   )
 
 (defn files [dir]
-  (remove (fn [x] (empty? (re-seq #".md" (.getName x))))
+  (remove (fn [x] (empty?  (re-seq #"\.(md|wiki)" (.getName x))))
           (file-seq (clojure.java.io/file dir))))
 
 (defn pages [dir]
