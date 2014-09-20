@@ -5,11 +5,6 @@
   ;(:gen-class :main true)
   )
 
-;(defrecord WikiDir [path]
-;  File
-;  ())
-;(let [testing "src/test/"])
-
 (defn files [dir]
   (remove (fn [x] (empty?  (re-seq #"\.(md|wiki)" (.getName x))))
           (file-seq (clojure.java.io/file dir))))
@@ -19,12 +14,30 @@
   )
 
 (defn slug [filename]
+  "Replaces nasty spaces with friendly hyphens. Maybe it should cut off file extensions..."
   (-<> filename
       (clojure.string/lower-case)
       (clojure.string/replace <> " " "-")))
 
 (defn title [sitename f]
-  (str sitename " | " (.getName f)))
+  "Turns a string and a file into a nice string for the title of a web page."
+  (str sitename " | "
+       (-<> f
+           (.getName <>)
+           (clojure.string/split <> #"\.")
+           (first <>)
+            )))
+
+;; Some sleazytesting.
+(let [testfile  (clojure.java.io/file
+                 "/home/thomas/hax0r/grothendieck/src/grothendieck/test/test-site/the first person with a head.wiki")]
+  testfile
+  (title "finite.support" testfile)
+  )
+
+
+
+
 
 (defn write-page [target title]
   (fn [f]
@@ -39,9 +52,8 @@
 ;;     (map #(please-to-write %) (files source)))
 ;;   (println "Built " source "site in " target "."))
 
-
-
 ;(defn -main [title source target]
+
 
 ;; bash looks to see if anything important has changed.
 
@@ -58,3 +70,9 @@
 ;; take the file's contents,
 ;; give them to chapter/page
 ;; spit the result to target.
+
+;; Use protocols?
+;(defrecord WikiDir [path]
+;  File
+;  ())
+;(let [testing "src/test/"])
