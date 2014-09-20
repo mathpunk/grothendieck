@@ -1,15 +1,17 @@
 (ns grothendieck.core
   (:require [grothendieck.pages :refer [make-page]])
   (:require [swiss.arrows :refer :all])
-  ;(:require [grothendieck.front-matter :refer :all])
+  (:require [grothendieck.front-matter :refer :all])
   ;(:gen-class :main true)
   )
 
 (defn files [dir]
+  "Given a directory name, return the wiki and markdown files."
   (remove (fn [x] (empty?  (re-seq #"\.(md|wiki)" (.getName x))))
           (file-seq (clojure.java.io/file dir))))
 
 (defn preprocessed [file]
+  "Given a file, create a map with front-matter and content information."
   {:title (.getName file) :body (slurp file)}
   )
 
@@ -33,6 +35,7 @@
                  "/home/thomas/hax0r/grothendieck/src/grothendieck/test/test-site/the first person with a head.wiki")]
   testfile
   (title "finite.support" testfile)
+  (with-front-matter testfile)
   )
 
 
