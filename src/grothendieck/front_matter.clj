@@ -25,7 +25,7 @@
                 ;; but a ChunkedSeq if I try and do stuff here. So the next function up
                 ;; is gonna have to deal with the whitespace. Suck it.
                        [k v])))))]
-     (update-in front-mattered [:body] str))))
+     (update-in front-mattered [:body] clojure.string/join))))
 
 
 
