@@ -70,14 +70,12 @@
 ;; let statements that I evaluate in Lightable will have to do for now.
 (let [dir "/home/thomas/hax0r/grothendieck/src/grothendieck/test/test-site"
       testfile (clojure.java.io/file dir "the first person with a head.wiki")
-      othertestfile (clojure.java.io/file dir "title are cool.wiki")]
-  (page-html dir othertestfile)
-  (page-html dir testfile)
-  (slug testfile)
-  (slug othertestfile)
-  (write-page dir testfile)
-  (build-pages dir)
-  )
+      othertestfile (clojure.java.io/file dir "title are cool.wiki")
+      testnofront (clojure.java.io/file dir "backstaging.wiki")]
+  (with-front-matter testnofront)
+  (build-pages dir))
+
+
 
 
 
