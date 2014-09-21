@@ -22,10 +22,13 @@
           (file-seq (clojure.java.io/file dir))))
 
 (defn slug [f]
-  "Replaces nasty spaces with friendly hyphens. Maybe it should cut off file extensions..."
+  "Replaces nasty spaces with friendly hyphens, and corrects the extension"
   (-<> (.getName f)
       (clojure.string/lower-case)
-      (clojure.string/replace <> " " "-")))
+      (clojure.string/replace <> " " "-")
+      (clojure.string/replace <> #"\.(wiki|md)" ".html")))
+
+
 
 ;; ========================================================================================
 ;; Building
@@ -39,7 +42,7 @@
 ;; 3? Check if it's marked, :publish? yes or true
 ;; 4. For each publishable file, use its preprocess into a map to make html.
 
-(defn write-page [dir f]
+(defn page-html [dir f]
   (let [prefix (str (:sitename (config dir)) " | ")
         data (with-front-matter f)
         page-title (str prefix
@@ -48,34 +51,46 @@
                                          (-<> f
                                              (.getName <>)
                                              (clojure.string/split <> #"\.")
-                                             (first <>) ))))
-        filename (slug f)]
+                                             (first <>) ))))]
    (make-page (assoc-in data [:front :title] page-title))))
 
+(defn write-page [dir f]
+  (spit (clojure.java.io/file dir "target" (slug f)) (page-html dir f)))
+
+(defn build-pages [dir]
+  (for [f (files dir)]
+    (write-page dir f)))
+
+
+
+;; =============================================================================
+;; Testing
+;; =============================================================================
+;; I don't know how to write proper tests for html, so sleazytesting via stray
+;; let statements that I evaluate in Lightable will have to do for now.
+(let [dir "/home/thomas/hax0r/grothendieck/src/grothendieck/test/test-site"
+      testfile (clojure.java.io/file dir "the first person with a head.wiki")
+      othertestfile (clojure.java.io/file dir "title are cool.wiki")]
+  (page-html dir othertestfile)
+  (page-html dir testfile)
+  (slug testfile)
+  (slug othertestfile)
+  (write-page dir testfile)
+  (build-pages dir)
+  )
 
 
 
 
-;; -----------------------------------------------------------------------------
-;; Here is some garbage code:
-;;
-;; (defn write-page [target title]
-;;   (fn [f]
-;;     (let [filename (slug (.getName f))
-;;           path (java.io.File. target filename)]
-;;        (spit path (make-page {:title title :keywords "" :body (slurp f)})))))
-;;
-;; (defn build-site [title source target]
-;;   (println "Building site " title " from the " source " directory..................")
-;;   (let [please-to-write (write-page target title)]
-;;     (map #(please-to-write %) (files source)))
-;;   (println "Built " source "site in " target "."))
-;;
-;;(defn -main [title source target]
-;;
-;; -----------------------------------------------------------------------------
-;;
-;; And here are some garbage notes on things that may or may not want to be written in bash.
+
+
+
+
+
+
+
+;; ===========================================================================
+;; Here are some garbage notes on things that may or may not want to be written in bash.
 ;;
 ;; bash looks to see if anything important has changed.
 ;; future: clj, read the headers if any
@@ -90,26 +105,8 @@
 ;; take the file's contents,
 ;; give them to chapter/page
 ;; spit the result to target.
-;; -----------------------------------------------------------------------------
-
-
-
-
-
-;; =============================================================================
-;; Testing
-;; =============================================================================
-;; I don't know how to write proper tests for html, so sleazytesting via stray
-;; let statements that I evaluate in Lightable will have to do for now.
-(let [dir "/home/thomas/hax0r/grothendieck/src/grothendieck/test/test-site"
-      testfile (clojure.java.io/file dir "the first person with a head.wiki")
-      othertestfile (clojure.java.io/file dir "title are cool.wiki")]
-  (write-page dir othertestfile)
-  (write-page dir testfile)
-  )
-
-
-
+;;
+;;
 ;; =============================================================================
 ;; Possible refactoring
 ;; =============================================================================
@@ -118,3 +115,6 @@
 ;;  File
 ;;  ())
 ;;(let [testing "src/test/"])
+
+
+
