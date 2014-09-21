@@ -29,7 +29,6 @@
       (clojure.string/replace <> #"\.(wiki|md)" ".html")))
 
 
-
 ;; ========================================================================================
 ;; Building
 ;; ========================================================================================
@@ -38,7 +37,7 @@
 ;;
 ;; It should:
 ;; 1. Take a dir to look for text content.
-;; 2. Either take a dir, or assume that it's the dir+"html" or "target" or whatever.
+;; 2. The dir should have a "target" dir to take the html.
 ;; 3? Check if it's marked, :publish? yes or true
 ;; 4. For each publishable file, use its preprocess into a map to make html.
 
