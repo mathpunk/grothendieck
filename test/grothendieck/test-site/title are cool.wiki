@@ -1,0 +1,7 @@
+---
+title: An actual title, given by me
+author: i said, it's me
+---
+
+This page tests whether the if-let statement in core understands that it's better to take
+the title from front-matter than from the filename.

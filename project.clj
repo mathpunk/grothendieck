@@ -14,5 +14,5 @@
   :main ^:skip-aot grothendieck.core
   :target-path "target/%s"
   :source-paths ["src" "src/grothendieck"]
-  :test-paths ["src/grothendieck/test"]
+  :test-paths ["test" "test/grothendieck"]
   :profiles {:uberjar {:aot :all}})
