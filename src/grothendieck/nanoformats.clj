@@ -1,9 +1,26 @@
-(ns grothendieck.nanoformats)
+(ns grothendieck.nanoformats
+  (:require [clojure.string :refer [replace]])
+  (:require [grothendieck.pages :refer [slug]]))
 
 (def markings
-  {:links #"\[\[(.+)\]\]"
+  {:internal-links #"\[\[([\w\s]+)\]\]"
+   :external-links #"\[.+\]\((.+)\)"
    :tom-whisper #"\[\[.+\]\]"
    :kellyn-whisper #"\[\[.+\]\]"})
+
+(defn internal-links [text]
+  (replace text (:internal-links markings) (str "[$1](" (slug "$1") ")")))
+
+
+(slug "oh hai")
+
+(internal-links "wow [[links]]")
+
+
+;; Later:
+;(defn external-links [text]
+  ;(re-seq (:external-links markings) text))
+;(external-links "This links [out](http://example.com)")
 
 ;; See also,
 ;; ~/writing/wiki/design concepts.wiki
@@ -18,8 +35,8 @@
 
 ;; Intrasite Links
 
-(defn sub-links [text]
-  (re-seq (:links markings) text))
+; (defn sub-links [text]
+;  (re-seq (:links markings) text))
 
 
 

@@ -3,7 +3,16 @@
   (:require [hiccup.core :refer [html]])
   (:require [hiccup.def :refer [defhtml]])
   (:require [hiccup.page :refer [include-css include-js]])
+  (:require [swiss.arrows :refer :all])
   (:require [garden.core :refer [css]]))
+
+(defn slug [f]
+  "Replaces nasty spaces with friendly hyphens, and corrects the extension"
+  (-<> f
+      (clojure.string/lower-case)
+      (clojure.string/replace <> " " "-")
+      (clojure.string/replace <> #"\.(wiki|md)" "")
+      (str <> ".html")))
 
 (def style (css []))
 

@@ -1,4 +1,4 @@
 (ns grothendieck.core-test
-  (:use grothendieck.core)
-  (:use grothendieck.pages)
-  (:require [clojure.test :refer [is]]))
+  (:require [grothendieck.core :refer :all])
+  (:require [grothendieck.pages :refer :all])
+  (:require [expectations :refer [expect]]))

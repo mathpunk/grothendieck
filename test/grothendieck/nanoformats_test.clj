@@ -1,6 +1,16 @@
 (ns grothendieck.nanoformats-test
   (:require [grothendieck.nanoformats :refer :all])
-  (:require [clojure.test :refer [is]]))
+  (:use expectations))
 
-(is (sub-links "This has a [[link]].") ["link"])
-(is (empty? (sub-links "This has no link.")) true)
+;; =======================================================================
+;; Creating standard markdown links out of vimwiki shortcuts.
+;; =======================================================================
+;;
+;; Singles.
+(expect "This has a [link](link.html)." (internal-links "This has a [[link]]."))
+
+(expect "This has no link." (internal-links "This has no link."))
+
+;; Multiples.
+(expect "I'm text with [one link](one-link.html) and also [another link](another-link.html)."
+        (internal-links "I'm text with [[one link]] and also [[another link]]."))

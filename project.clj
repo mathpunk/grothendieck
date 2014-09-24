@@ -11,6 +11,7 @@
                  [hiccup "1.0.5"]
                  [swiss-arrows "1.0.0"]
                  [markdown-clj "0.9.47"]]
+
   :main ^:skip-aot grothendieck.core
   :target-path "target/%s"
   :source-paths ["src" "src/grothendieck"]

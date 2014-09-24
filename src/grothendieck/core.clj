@@ -1,5 +1,5 @@
 (ns grothendieck.core
-  (:require [grothendieck.pages :refer [make-page]])
+  (:require [grothendieck.pages :refer :all])
   (:require [swiss.arrows :refer :all])
   (:require [grothendieck.front-matter :refer :all])
   ;(:gen-class :main true)
@@ -20,13 +20,6 @@
   "Given a directory name, return the wiki and markdown files."
   (remove (fn [x] (empty?  (re-seq #"\.(md|wiki)" (.getName x))))
           (file-seq (clojure.java.io/file dir))))
-
-(defn slug [f]
-  "Replaces nasty spaces with friendly hyphens, and corrects the extension"
-  (-<> (.getName f)
-      (clojure.string/lower-case)
-      (clojure.string/replace <> " " "-")
-      (clojure.string/replace <> #"\.(wiki|md)" ".html")))
 
 
 ;; ========================================================================================
@@ -54,7 +47,7 @@
    (make-page (assoc-in data [:front :title] page-title))))
 
 (defn write-page [dir f]
-  (spit (clojure.java.io/file dir "target" (slug f)) (page-html dir f)))
+  (spit (clojure.java.io/file dir "target" (slug (.getName f)) (page-html dir f))))
 
 (defn build-pages [dir]
   (for [f (files dir)]
