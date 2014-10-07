@@ -1,20 +1,20 @@
 (ns grothendieck.nanoformats
-  (:require [clojure.string :refer [replace]])
+  (:require [clojure.string :as string])
   (:require [grothendieck.pages :refer [slug]]))
 
 (def markings
-  {:internal-links #"\[\[([\w\s]+)\]\]"
+  {:internal-links #"\[\[(.+)\]\]"
    :external-links #"\[.+\]\((.+)\)"
    :tom-whisper #"\[\[.+\]\]"
    :kellyn-whisper #"\[\[.+\]\]"})
 
-(defn internal-links [text]
-  (replace text (:internal-links markings) (str "[$1](" (slug "$1") ")")))
+(defn internal-links
+  [text]
+  (string/replace text #"\[\[(.+)\]\]"
+                  (fn [[full-match first-group]]
+                    (str "[" first-group "](" (slug first-group) ")"))))
 
 
-(slug "oh hai")
-
-(internal-links "wow [[links]]")
 
 
 ;; Later:
