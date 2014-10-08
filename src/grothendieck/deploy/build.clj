@@ -1,4 +1,4 @@
-(ns grothendieck.core
+(ns grothendieck.deploy.build
   (:require [grothendieck.pages :refer :all])
   (:require [swiss.arrows :refer :all])
   (:require [grothendieck.front-matter :refer :all])

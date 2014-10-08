@@ -1,4 +1,4 @@
-(ns grothendieck.front-matter
+(ns grothendieck.deploy.front-matter
   (:require [clojure.string :as string])
   (:require [swiss.arrows :refer :all]))
 

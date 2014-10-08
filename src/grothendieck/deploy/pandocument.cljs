@@ -1,4 +1,4 @@
-ns pandocument
+ns grothendieck.deploy.pandoc
 require fs
 require shell
 

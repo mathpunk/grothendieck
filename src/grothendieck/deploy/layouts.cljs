@@ -12,7 +12,7 @@
 
 (defn section [content]
  (comment
-    might have, 
+    might have,
     aside
     datagram
     exercise
@@ -22,7 +22,7 @@
 ; viz, art, data, enchiladas
 ; (defmacro datagram [name & body])
 
-(comment 
+(comment
   (defn art [search-term]
     image tag
     call to data

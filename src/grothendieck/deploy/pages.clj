@@ -1,4 +1,4 @@
-(ns grothendieck.pages
+(ns grothendieck.deploy.pages
   (:require [markdown.core :refer [md-to-html-string]])
   (:require [hiccup.core :refer [html]])
   (:require [hiccup.def :refer [defhtml]])
