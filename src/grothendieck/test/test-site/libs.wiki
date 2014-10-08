@@ -1,8 +1,0 @@
-I'm interesting is using many cool libs.
-
-velocity
-blast
-processing?
-opencv
-annotator
-annotatorStore
