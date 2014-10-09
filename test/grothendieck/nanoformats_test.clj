@@ -1,5 +1,5 @@
 (ns grothendieck.nanoformats-test
-  (:require [grothendieck.nanoformats :refer :all])
+  (:require [grothendieck.literate.nanoformats :refer :all])
   (:use expectations))
 
 

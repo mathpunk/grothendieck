@@ -1,8 +1,8 @@
-(ns grothendieck.service.chapters)
+;(ns grothendieck.service.chapters)
 
-; serve your stuff statically. this is more config than anything, right? 
+; serve your stuff statically. this is more config than anything, right?
 
-(ns grothendieck.service.notes)
+;(ns grothendieck.service.notes)
 
 ; http/get "/" static-index
 ; http/get "notes/:id"
