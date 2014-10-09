@@ -9,12 +9,9 @@
                  [swiss-arrows "1.0.0"]
                  [markdown-clj "0.9.47"]
                  [http-kit "2.1.19"]
-                 [hickory "0.5.4"]
                  [compojure "1.2.0"]
                  [expectations "2.0.12"]
-                 [prismatic/dommy "0.1.3"]]
-
-
+                 [enlive "1.1.5"]]
   :main ^:skip-aot grothendieck.core
   :target-path "target/%s"
   :source-paths ["src" "src/grothendieck"]

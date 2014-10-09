@@ -1,5 +1,5 @@
 (ns grothendieck.files
-  (:require [grothendieck.static.front-matter :refer [with-front-matter]])
+  (:require [grothendieck.front-matter :refer [with-front-matter]])
   (:require [swiss.arrows :refer :all]))
 
 ;; ===================================================================
