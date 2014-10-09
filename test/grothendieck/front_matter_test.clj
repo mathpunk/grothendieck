@@ -9,4 +9,7 @@
 ; This should have front-matter and a body.
 (let [test (str test-dir "/" titled)]
   (expect false? (nil? (:front (with-front-matter test))))
-  (expect false? (nil? (:body (with-front-matter test)))))
+  (expect false? (nil? (:body (with-front-matter test))))
+  (expect {:title "some title"} (in (:front (with-front-matter test))))
+
+  )

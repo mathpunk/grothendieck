@@ -26,7 +26,7 @@
         data))))
 
 (defn with-front-matter [f]
-  {:front {:title "wow"} :body "hey"})
+  {:front (front-matter f) :body "hey"})
 
 ;; (defn with-front-matter [f]
 ;;   (with-open [r (clojure.java.io/reader f)]
