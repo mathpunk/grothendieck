@@ -1,6 +1,5 @@
-
-(ns grothendieck.
-  (:require [grothendieck.static.front-matter :refer [with-front-matter]])
+(ns grothendieck.pm.pages
+  (:require [grothendieck.front-matter :refer [with-front-matter]])
   (:require [swiss.arrows :refer :all])
   (:require [markdown.core :refer [md-to-html-string]])
   (:require [hiccup.core :refer [html]])
