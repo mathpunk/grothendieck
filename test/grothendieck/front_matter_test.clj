@@ -23,7 +23,7 @@
 ; Let's hunt down the join w/o space error.
 (let [test (str test-dir "/" "links are important.wiki")
       result (with-front-matter test)]
-  (expect #"link should be" (:body result))   ; ????????????/
+  (expect #"link should\nbe" (:body result))   ; ????????????/
 
   )
 
@@ -40,6 +40,5 @@
 ; ===============================================
 (let [titled (direct "title are cool.wiki")
       bodied (direct "box.wiki")]
-  (expect {:title "some title"} (in (shape-front-matter titled)))
   (expect empty? (:front (with-front-matter bodied)))
   )

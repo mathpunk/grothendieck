@@ -43,13 +43,13 @@
                     (assert (= (count split) 2) "grothendieck.static.front-matter
                                                  might be confused by a colon in a field's value.")
                     [k (map #(clojure.string/trim %) v)]))))
-        data)))
+        {})))
 
 (defn with-front-matter [f]
   (let [data (process-file f)]
     (-<> data
          (assoc-in <> [:front] (front-matter f))
-         (update-in <> [:body] #(clojure.string/join " " %)))))
+         (update-in <> [:body] #(clojure.string/join "\n" %)))))
 
 (let [test "/home/thomas/hax0r/grothendieck/test/grothendieck/test-site/content/title are cool.wiki"]
   (with-front-matter test))
