@@ -1,0 +1,13 @@
+Annotator requires jQuery and an implementation of JSON.parse and JSON.stringify. In short, the quickest way to get going with annotator is to include the following in the <head> of your document (paths relative to the repository root):
+
+<script src='lib/vendor/jquery.js'></script>
+<script src='lib/vendor/json2.js'></script>
+
+<script src='pkg/annotator.min.js'></script>
+<link rel='stylesheet' href='pkg/annotator.min.css'>
+You can then initialize Annotator for the whole document by including the following at the end of the <body> tag:
+
+<script>
+  $(document.body).annotator()
+</script>
+See demo.html for an example how to load and interact with plugins.

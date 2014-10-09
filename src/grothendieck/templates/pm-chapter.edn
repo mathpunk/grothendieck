@@ -1,0 +1,13 @@
+[:head
+ [:meta]
+ ; jquery requirements    ??
+ ; annotator requirements ??
+ ; typeplate requirements //cdn.jsdelivr.net/typeplate/1.1.2/typeplate.min.css
+ [:body
+  [:nav#chapters]
+  [:section#subchapter]
+  [:footer
+   [:section#see-also]
+   [:section#colophon]]]
+ ; annotator script
+ ]

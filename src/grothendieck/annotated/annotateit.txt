@@ -1,0 +1,5 @@
+Consumer keys
+Consumer key/secret pairs are AnnotateIt's API keys, and allow you to build applications that use AnnotateIt for annotation storage, while retaining control over the authentication of your users. See the documentation for a more detailed explanation.
+
+key	                              secret
+6eb23f5086674875aef8979514940a9b	633ed32e-1d8b-47f6-9f0c-77bf03dbecc5
