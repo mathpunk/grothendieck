@@ -25,5 +25,5 @@
                     [k (map #(string/trim %) v)]))))
         data))))
 
-(let [test "/home/thomas/hax0r/grothendieck/test/grothendieck/test-site/title are cool.wiki"]
+(let [test "/home/thomas/hax0r/grothendieck/test/grothendieck/test-site/content/title are cool.wiki"]
   (with-front-matter test))
