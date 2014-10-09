@@ -16,13 +16,32 @@
 ; This has body, but no front matter.
 (let [test (str test-dir "/" "links are important.wiki")
       result (with-front-matter test)]
+  (expect :body (in (keys result)))
   (expect #"hypertext dammit" (:body result))
- ; (expect true? (nil? (:front result)))
   )
 
-; I expected the :front of that to be nil. Troubling. Let's test the processor.
+; Let's hunt down the join w/o space error.
 (let [test (str test-dir "/" "links are important.wiki")
-      result (process-file test)]
-  (expect #"hypertext dammit" (:body result))
-  result
+      result (with-front-matter test)]
+  (expect #"link should be" (:body result))   ; Weird, it's just gone. Uh. Okay.
+
   )
+
+; I'm sick of this contexting silliness. Let's write a helper.
+(defn direct [f]
+  (str test-dir "/" f))
+
+; Does process-file do what you think it does?
+(expect empty? (:front (process-file (direct "dogfooding.wiki"))))
+
+; This ought to be empty, because this file has no front matter.
+(expect empty? (:front (with-front-matter (direct "box.wiki"))))
+
+
+
+
+
+
+
+
+
