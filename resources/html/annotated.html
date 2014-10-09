@@ -1,44 +1,14 @@
 <html>
 <head>
+
 </head>
   <body>
-  <div id="me" class="h-card">
-
-      <!-- here is a giant picture of my big stupid face
-
-      <img class="u-photo" src="./public/img/dawg.jpg"/>
-          - resize it, for one
-          - can i send it to indieauth w/o displaying it?
-      -->
-
-      <!-- bio, professional, and contact information -->
-      <div id="bio">
-        <p>i'm <span class="p-name"> <span class="p-given-name">tom</span> henderson</span>.
-        i live in <span class="p-locality">portland</span>, <span class="p-region">oregon</span>.</p>
-
-        <p class="p-note">i write, i mathe, i improvise, and i talk. (and talk and talk.)</p>
-      </div>
-
-      <p id="professional">you can hire me: for tutoring, speaking, researching,
-      explaining, consulting, facilitating, programming, and data art-and-science.</p>
-
-      <p id="contact">let's talk: send me <a href="mailto:tom@mathpunk.net">email</a> (if you are patient)
-                                                    <!-- how do i tuck this in the above w/o it being text?
-                                                    <span class="u-email">tom@mathpunk.net</span> -->
-      or <a href="http://meetme.so/mathpunk">schedule a chat</a> (maybe for the podcast?)</p>
-
-      <hr><!-- ================================================= -->
-
-      <p id="links">
-      <a href="https://twitter.com/mathpunk" rel="me">twitter</a> //
-      <a href="https://github.com/mathpunk" rel="me">github</a> //
-      <a href="./indieweb.html">indieweb</a> //
-      <a class="u-url" href="http://mathpunk.net"><span class="p-nickname">mathpunk</span>.net</a>
-      </p>
-    </div>
+      <p>Look it's a paragraph</p>
+      <p>I'd say that $\frac{1}{2}$ of the paragraphs have some math in them.</p>
   </body>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
   <script src="http://assets.annotateit.org/annotator/v1.1.0/annotator-full.min.js"></script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   <link rel="stylesheet" href="http://assets.annotateit.org/annotator/v1.1.0/annotator.min.css">
   <script type="text/javascript">
   jQuery(function ($) {
@@ -47,9 +17,13 @@
            });
 
   jQuery(function ($) {
-          $('#me').annotator();
+          $("p").annotator();
           });
   </script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+</script>
+<script type="text/javascript" src="path-to-mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   </html>
-
-
