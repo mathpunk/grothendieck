@@ -2,6 +2,7 @@
   (:require [swiss.arrows :refer :all]))
 
 (defn process-lines [lines]
+  "This helper function turns lines into a not-quite-shaped-right :front :body associative structure."
   (let [ls (->> lines
                 (map clojure.string/trim)
                 (remove clojure.string/blank?))]
@@ -11,11 +12,11 @@
       {:body (vec ls)})))
 
 (defn process-file [f]
+  "Opens the filename and runs it through the line processor. It's still not shaped quite right."
   (process-lines (line-seq (clojure.java.io/reader f))))
 
-
-
 (defn front-matter [f]
+  "Takes a filename, and extracts its front-matter, if there is any."
     (let [data (update-in (process-file f) [:body] clojure.string/join)]
       (if (:front data)
            (apply assoc {} (flatten
