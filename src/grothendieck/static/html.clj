@@ -5,7 +5,6 @@
   (:require [hiccup.core :refer [html]])
   (:require [hiccup.def :refer [defhtml]])
   (:require [hiccup.page :refer [include-css include-js]])
-  (:require [swiss.arrows :refer :all])
   (:require [garden.core :refer [css]]))
 
 (defn slug [f]
@@ -13,7 +12,7 @@
   (-<> f
       (clojure.string/lower-case)
       (clojure.string/replace <> " " "-")
-      (clojure.string/replace <> #"\.(wiki|md)" "")
+      (clojure.string/replace <> #"\.(wiki|md|my)" "")
       (str <> ".html")))
 
 (def style (css []))
@@ -56,11 +55,3 @@
                                              (clojure.string/split <> #"\.")
                                              (first <>) ))))]
    (make-page (assoc-in data [:front :title] page-title))))
-
-;; And some sleazytesting:
-
-(let [dir "/home/thomas/hax0r/grothendieck/test/grothendieck/test-site/content"
-      testfile (clojure.java.io/file dir "the first person with a head.wiki")
-      othertestfile (clojure.java.io/file dir "title are cool.wiki")
-      testnofront (clojure.java.io/file dir "backstaging.wiki")]
-  (page-html dir testfile))
