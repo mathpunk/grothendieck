@@ -23,7 +23,7 @@
 ; Let's hunt down the join w/o space error.
 (let [test (str test-dir "/" "links are important.wiki")
       result (with-front-matter test)]
-  (expect #"link should be" (:body result))   ; Weird, it's just gone. Uh. Okay.
+  (expect #"link should be" (:body result))   ; ????????????/
 
   )
 
@@ -31,17 +31,15 @@
 (defn direct [f]
   (str test-dir "/" f))
 
-; Does process-file do what you think it does?
+; Does process-file do what you think it does? This should have no front-matter.
 (expect empty? (:front (process-file (direct "dogfooding.wiki"))))
 
-; This ought to be empty, because this file has no front matter.
-(expect empty? (:front (with-front-matter (direct "box.wiki"))))
 
-
-
-
-
-
-
-
-
+; ===============================================
+; FAIL
+; ===============================================
+(let [titled (direct "title are cool.wiki")
+      bodied (direct "box.wiki")]
+  (expect {:title "some title"} (in (shape-front-matter titled)))
+  (expect empty? (:front (with-front-matter (direct "box.wiki"))))
+  )
