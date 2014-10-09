@@ -1,0 +1,12 @@
+
+open web is more important than open source.
+http://indiewebcamp.com/Principles
+
+learning to distribute information is more important than having a tradeskill in making
+it distributable.
+
+i'm making just a little fun at "learn to code!". the codez are important but when
+everything is markdown you can do a lot of fancy things with the text editor as the
+completely common interface.
+
+what are the [[interfaces]],then?

@@ -15,22 +15,6 @@
   "Opens the filename and runs it through the line processor. It's still not shaped quite right."
   (process-lines (line-seq (clojure.java.io/reader f))))
 
-(defn shape-front-matter [data]
-  "Assuming the data is some nice front matter, this makes it into a dictionary."
-      (if (:front data)
-           (apply assoc {} (flatten
-               (for [string (:front data)]
-                  (let [split (clojure.string/split string #":")
-                        k (keyword (first split))
-                        v (rest split)]
-                    (assert (= (count split) 2) "grothendieck.static.front-matter
-                                                 might be confused by a colon in a field's value.")
-                    [k (map #(clojure.string/trim %) v)]))))
-        data))
-
-
-
-
 (defn front-matter [f]
   "Takes a filename, and extracts its front-matter, if there is any."
     (let [data (update-in (process-file f) [:body] clojure.string/join)]
