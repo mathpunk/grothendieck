@@ -41,5 +41,5 @@
 (let [titled (direct "title are cool.wiki")
       bodied (direct "box.wiki")]
   (expect {:title "some title"} (in (shape-front-matter titled)))
-  (expect empty? (:front (with-front-matter (direct "box.wiki"))))
+  (expect empty? (:front (with-front-matter bodied)))
   )
