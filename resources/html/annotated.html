@@ -1,29 +1,39 @@
 <html>
 <head>
-
-</head>
-  <body>
-      <p>Look it's a paragraph</p>
-      <p>I'd say that $\frac{1}{2}$ of the paragraphs have some math in them.</p>
-  </body>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
   <script src="http://assets.annotateit.org/annotator/v1.1.0/annotator-full.min.js"></script>
   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   <link rel="stylesheet" href="http://assets.annotateit.org/annotator/v1.1.0/annotator.min.css">
+</head>
+  <body>
+      <br/>
+      <div id="chapter">
+      <h1>Lorem ipsum dolor sit amet</h1>
+<p>Consectetur adipiscing elit. Nulla dapibus lobortis vulputate. Aenean metus mauris, posuere eu nisi eget, tincidunt lacinia elit. Fusce interdum dignissim enim id accumsan. Nunc et imperdiet nunc. Duis vulputate in arcu non dapibus. Nunc risus ex, fermentum et odio non, pulvinar mattis mi. Duis diam mi, pulvinar sed est eget, varius feugiat erat. Vestibulum lobortis fringilla pulvinar. Suspendisse iaculis, metus sed pharetra dapibus, arcu nunc ornare nulla, nec ornare massa libero eu tellus. Praesent at velit ut nulla pharetra imperdiet.</p>
+
+      <h2>Cras viverra massa tellus</h2>
+      <p>Ut faucibus nulla varius eu. Fusce tempor, sem $\in$ feugiat pellentesque, $\frac{1}{2}$ erat erat tristique neque, in semper justo mauris at nisi. Ut sed felis quam. Quisque urna tortor, tincidunt ac malesuada molestie, semper et risus. Nunc non leo sed felis accumsan sodales. Proin efficitur ac sem ut convallis. Duis id lacus accumsan, suscipit ipsum sed, semper ex.</p>
+
+<p>Nam semper diam tempor ipsum elementum lobortis. Aenean at augue vitae lectus ultrices imperdiet. Suspendisse vel dolor a orci placerat consectetur. Maecenas in felis volutpat nisl bibendum fermentum eget in purus. Nulla tempor dolor finibus ullamcorper sollicitudin. Sed urna diam, ultricies a dapibus a, pharetra sit amet enim. Nunc ullamcorper ipsum sed urna mollis, a malesuada mauris bibendum. Donec nisi leo, molestie bibendum sapien ac, luctus fringilla nunc. Maecenas et elit et risus egestas ornare. Aenean laoreet augue at pharetra mollis. Integer quis mauris sit amet neque sollicitudin laoreet. Cras porttitor tincidunt leo, at egestas nisi malesuada ut. Donec congue pretium libero, eu mattis metus fringilla vel. In interdum pulvinar odio, feugiat finibus mi malesuada id. Maecenas iaculis dolor at arcu sagittis rutrum.</p>
+
+<p>Sed condimentum nibh in odio dignissim, fermentum pulvinar lorem fermentum. Curabitur quis mauris vitae velit pellentesque aliquam eu a mi. Nam in quam imperdiet, sagittis urna ac, rhoncus leo. Nam nec nunc nisi. Donec semper ligula ut nibh mollis, ac posuere leo eleifend. Suspendisse potenti. Donec interdum diam eu nulla molestie tincidunt. Duis consectetur volutpat sem, sed blandit felis dignissim eget. Aenean id dignissim mi. Morbi et faucibus odio, eget aliquam nulla. In in enim dictum, maximus tellus a, placerat sapien. Nulla placerat ante porta sapien luctus, id fringilla diam bibendum. Curabitur ac dolor a odio dignissim molestie maximus vitae quam. Etiam facilisis ante sed arcu commodo, in pulvinar enim imperdiet. Nulla vel lectus non leo aliquam accumsan.</p>
+
+<p>Pellentesque lobortis neque eget mollis varius. Mauris egestas, dolor eu congue facilisis, ex dolor sagittis sapien, vitae lacinia tortor magna ut massa. Pellentesque at eleifend velit, eget imperdiet nulla. Nunc odio ipsum, accumsan euismod ipsum et, sagittis volutpat nunc. Mauris id ante ultrices lectus varius efficitur at a augue. Ut lectus augue, ultrices non cursus id, consequat nec quam. Sed gravida aliquet tempus. Nulla in bibendum ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas quis blandit lorem. Praesent egestas risus mi, a dictum lectus finibus ut. Aliquam condimentum maximus ex, quis semper ex aliquam sed. Duis nec lectus vel diam consequat suscipit a id lorem. In sed lobortis enim, ut gravida arcu. Maecenas nibh odio, cursus vel mauris sed, dignissim tempus urna.</p>
+
+  </div>
+  </body>
   <script type="text/javascript">
   jQuery(function ($) {
-        $('#content').annotator()
+        $('#chapter').annotator()
                      .annotator('setupPlugins');
            });
-
   jQuery(function ($) {
-          $("p").annotator();
+          $("#chapter").annotator();
           });
   </script>
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
     });
-</script>
-<script type="text/javascript" src="path-to-mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  </html>
+    </script>
+</html>
