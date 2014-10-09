@@ -30,6 +30,7 @@
         {})))
 
 (defn with-front-matter [f]
+  "Given some text file, "
   (let [data (process-file f)]
     (-<> data
          (assoc-in <> [:front] (front-matter f))
