@@ -11,5 +11,5 @@
   (expect false? (nil? (:front (with-front-matter test))))
   (expect false? (nil? (:body (with-front-matter test))))
   (expect {:title "some title"} (in (:front (with-front-matter test))))
-
+  (expect #"if-let statement in core" (:body (with-front-matter test)))
   )
