@@ -1,5 +1,5 @@
 (ns grothendieck.front-matter-test
-  (:require [grothendieck.static.front-matter :refer :all])
+  (:require [grothendieck.front-matter :refer :all])
   (:require [expectations :refer [expect in]])
   (:require [clojure.string :as string]))
 

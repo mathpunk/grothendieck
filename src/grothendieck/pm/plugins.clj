@@ -1,2 +1,2 @@
-(ns grothendieck.static.plugins
+(ns grothendieck.pm.plugins
   (:require [hiccup.page :as page]))
