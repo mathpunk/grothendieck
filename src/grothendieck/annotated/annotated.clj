@@ -8,14 +8,8 @@ hiccup.page :as page
 
 ; ## Setting up Annotator
 
-; Setting up Annotator requires only a single line of code. 
-
-; Select the element that you would like to annotate eg. <div id="content">...</div> and
-; call the .annotator() method on it. In jQuery, 
-
-
+<script>
 jQuery(function ($) {
-    $('#content').annotator();
+    $('p').annotator();
 });
-
-; Annotator will now be loaded on the #content element. Select some text to see it in action.
+</script>
