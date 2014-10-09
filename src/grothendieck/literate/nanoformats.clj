@@ -62,3 +62,7 @@
 ;; ;;   (notify [n] "Is a function that does something cool when a data value is null, and someone
 ;; ;;               asks it to."
 ;; ;;         default: mail or exo brain Tom's devices or email account)
+
+(defprotocol Nanoformat
+  (regexify [expression function-on-groups] "Provide a regex that gives groups, and a function of those groups to...")
+  )
