@@ -1,9 +1,7 @@
 (ns grothendieck.static.build
-  (:require [grothendieck.static.pages :refer :all])
   (:require [swiss.arrows :refer :all])
   (:require [grothendieck.static.front-matter :refer :all])
-  ;(:gen-class :main true)
-  )
+  (:require [grothendieck.static.html :refer [page-html slug]]))
 
 ;; =============================================================================
 ;; Preprocessing
@@ -34,20 +32,12 @@
 ;; 3? Check if it's marked, :publish? yes or true
 ;; 4. For each publishable file, use its preprocess into a map to make html.
 
-(defn page-html [dir f]
-  (let [prefix (str (:sitename (config dir)) " | ")
-        data (with-front-matter f)
-        page-title (str prefix
-                        (clojure.string/trim (get-in data [:front :title]
-                                       ;; or make a title out of the filename
-                                         (-<> f
-                                             (.getName <>)
-                                             (clojure.string/split <> #"\.")
-                                             (first <>) ))))]
-   (make-page (assoc-in data [:front :title] page-title))))
 
+;; ===========================================================================
+;; I/0
+;; ===========================================================================
 (defn write-page [dir f]
-  (spit (clojure.java.io/file dir "target" (slug (.getName f)) (page-html dir f))))
+  (spit (clojure.java.io/file dir "target" (slug (.getName f))) (page-html dir f)))
 
 (defn build-pages [dir]
   (for [f (files dir)]
@@ -60,13 +50,12 @@
 ;; =============================================================================
 ;; I don't know how to write proper tests for html, so sleazytesting via stray
 ;; let statements that I evaluate in Lightable will have to do for now.
+
 (let [dir "/home/thomas/hax0r/grothendieck/test/grothendieck/test-site/content"
       testfile (clojure.java.io/file dir "the first person with a head.wiki")
       othertestfile (clojure.java.io/file dir "title are cool.wiki")
       testnofront (clojure.java.io/file dir "backstaging.wiki")]
-  (with-front-matter testnofront)
   (build-pages dir))
-
 
 
 

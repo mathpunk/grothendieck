@@ -1,6 +1,9 @@
 (ns grothendieck.literate.nanoformats
   (:require [clojure.string :as string])
-  (:require [grothendieck.static.pages :refer [slug]]))
+  (:require [grothendieck.static.html :refer [slug]]))
+
+
+(defn preprocess [f])
 
 (def markings
   {:internal-links #"\[\[(.+)\]\]"
