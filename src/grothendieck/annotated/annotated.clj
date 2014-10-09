@@ -1,15 +1,34 @@
 hiccup.page :as page
+hiccup.element :as elem
 
-(page/include-js "list of js sources"
-  "http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"
-  "http://assets.annotateit.org/annotator/v1.2.9/annotator-full.min.js")
+[:html
+ [:head
+  ;jquery, annotator-full
+  (page/include-js 
+    "http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"
+    "http://assets.annotateit.org/annotator/v1.2.9/annotator-full.min.js")
+  (page/include-css "http://assets.annotateit.org/annotator/v1.2.9/annotator.min.css")
+  ;typeplate
+  ,,,
+  ;responsive
+  ,,,]
+  ;front-matter
 
-(page/include-css "http://assets.annotateit.org/annotator/v1.2.9/annotator.min.css")
+ [:body (:body text)]
+ (make-annotateable "chapter>p")
+ (authenticate)
+ (store)]
 
-; ## Setting up Annotator
 
-<script>
-jQuery(function ($) {
-    $('p').annotator();
-});
-</script>
+;; I think you're putting too much in here maybe? 
+
+
+
+
+(defn make-annotateable [sel]
+  (elem/javascript-tag
+    (str "jQuery(function ($) {
+        $('" sel "').annotator();
+    });")))
+
+
