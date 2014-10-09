@@ -1,8 +1,0 @@
-To use this, you will need to install two Python packages,
-htpasswd and xkcdpass, (via pip or otherwise):
-
-$ sudo pip install htpasswd
-$ sudo pip install xkcdpass
-
-To run it, use "$ python generate-htpasswd.py" and follow
-the directions that get printed out.
